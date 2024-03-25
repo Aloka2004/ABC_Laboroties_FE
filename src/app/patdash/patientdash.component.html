@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ABC Labs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a style="color: white;"class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/createpatient">Register Patients</a>
+          </li>
+          <li class="nav-item">
+            <a style="color: white;"class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/medicinelist">Lab Reports</a>
+          </li>
+        </ul>
+        <div>
+          <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#loginModal"><a href="javascript:void(0);" routerLink="/home" class="text-white text-decoration-none">Logout</a></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container mt-4">
+    <h2 class="mb-3">Patient Dashboard</h2>
+    <p class="text-muted">
+      <marquee behavior="scroll" direction="left">
+        Welcome to Admin Dashboard. Please find the  Current Patient Appoitmnet List in the Queue !!. Click Register Patients to register patients to our abc laboroties , Click Lab Reports to add and  view the lab reports 
+      </marquee>
+    </p>
+    <div class="my-4">
+      <input type="text" name="search" [(ngModel)]="searchText" class="form-control" placeholder="Search">
+    </div>
+    <h3>Current Patient Appoitmnet List in the Queue</h3>
+    <div class="table-responsive">
+      <button (click)="exportTableToPDF()" class="btn btn-danger mb-2">Export to PDF</button>
+      <table class="table table-striped" id="contentToConvert">
+        <thead class="table-light">
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Fees</th>
+            <th>Technician</th>
+            <th>Paid / Not Paid</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr *ngFor="let patient of patients | filter:searchText"> -->
+            <tr *ngFor="let patient of patients ">
+
+            <td>{{patient.id}}</td>
+            <td>{{patient.name}}</td>
+            <td>{{patient.age}}</td>
+            <td>{{patient.fees}}</td>
+            <td>{{patient.urgency}}</td>
+            <td>{{patient.paidnotpaid}}</td>
+            <td>
+              <button (click)="deletePatient(patient.id)" class="btn btn-danger">Cancel</button>
+            </td>
+
+            
+            
+            <td>
+              <button (click)="deletePatient(patient.id)" class="btn btn-danger">Email the Lab Report </button>
+            </td>
+            
+            
+            
+           
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

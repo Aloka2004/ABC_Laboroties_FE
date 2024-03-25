@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">ABC Labs</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/appointmentlist">Appointments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"  href="javascript:void(0);" routerLink="/medicinelist">View Lab Reports</a>
+      </li>
+      </ul>
+      <div>
+        <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#loginModal"><a href="javascript:void(0);" routerLink="/home" class="text-white text-decoration-none">Logout</a></button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <h2 class="mb-3">Admin Dashboard</h2>
+  <p class="text-muted">
+    <marquee behavior="scroll" direction="left">
+      Welcome to Admin Dashboard. Please find the patient list below!!. Click Appointments to view and update Appointments, Click Add Appointment to add new Appointment
+    </marquee>
+  </p>
+  <div class="my-4">
+    <input type="text" name="search" [(ngModel)]="searchText" class="form-control" placeholder="Search">
+  </div>
+  <h3>Please Pay your bill here according to your patient id!!!</h3>
+  <div class="table-responsive">
+    <button (click)="exportTableToPDF()" class="btn btn-danger mb-2">Export to PDF</button>
+    <table class="table table-striped" id="contentToConvert">
+      <thead class="table-light">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Fees</th>
+          <th>Technician</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr *ngFor="let patient of patients | filter:searchText"> -->
+          <tr *ngFor="let patient of patients">
+
+          <td>{{patient.id}}</td>
+          <td>{{patient.name}}</td>
+          <td>{{patient.age}}</td>
+          <td>{{patient.fees}}</td>
+          <td>{{patient.urgency}}</td>
+          <td>
+            <button (click)="pay(patient.id)" class="btn btn-danger">Pay here</button>
+          </td>
+
+
+
+        </tr>
+
+        <div class="my-4">
+          <h3>Submit an Inquiry or Request</h3>
+          <form (ngSubmit)="submitInquiry()" #inquiryForm="ngForm">
+            <div class="mb-3">
+              <label for="inquiryType" class="form-label">Inquiry Type</label>
+              <select class="form-select" id="inquiryType" required [(ngModel)]="inquiryType" name="inquiryType">
+                <option value="Appointment">Appointment</option>
+                <option value="Test Results">Test Results</option>
+                <option value="Billing Issues">Billing Issues</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="inquiryDetails" class="form-label">Details</label>
+              <textarea class="form-control" id="inquiryDetails" rows="3" required [(ngModel)]="inquiryDetails" name="inquiryDetails"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="patientID" class="form-label">Patient ID</label>
+              <input type="text" class="form-control" id="patientID" required [(ngModel)]="patientID" name="patientID">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+
+           <h5> After submitting your inquiry or request, ABC Laboratories will contact you and respond within one hour. If you do not receive a response within this time frame, please feel free to call our hotline at 0113244565. We are dedicated to assisting our patients and ensuring their satisfaction. </h5>
+          </form>
+        </div>
+      </tbody>
+    </table>
+  </div>
+</div>

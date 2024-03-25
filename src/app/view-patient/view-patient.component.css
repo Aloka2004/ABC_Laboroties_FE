@@ -1,0 +1,39 @@
+.table
+{
+  box-shadow: 10px -10px 5px hsl(0, 0%, 80%);
+}
+
+.table
+{
+  border-radius:25px
+}
+
+
+
+.table-header {
+    background-color: #95A5A6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    
+  }
+
+ 
+    .table-header-row {
+        background-color: #95A5A6;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: hsl(0, 0%, 100%);
+        font-weight: bold;
+        border-bottom: 1px solid #fff;
+    }
+
+    
+
+    .navbar{
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+

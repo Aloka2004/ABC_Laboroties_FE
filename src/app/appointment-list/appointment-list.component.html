@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="#">ABC Labrotories</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link active" href="javascript:void(0);" routerLink="/admindash">Back</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" href="javascript:void(0);" routerLink="/createappointment">Add Appointments</a>
+                  
+              </li>
+             
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<div class="container my-4" style="padding-top: 5%;">
+  <h2>Current Appointment List of ABC Laboroties</h2>
+  <p class="lead">Welcome to the Appointment list page. Click Add Appointments to add appointments.</p>
+  <button (click)="exportTableToPDF()" class="btn btn-danger mb-2">Export to PDF</button>
+  <table class="table table-striped" id="contentToConvert">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Number</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let appointment of appointments">
+              <td>{{ appointment.id }}</td>
+              <td>{{ appointment.name }}</td>
+              <td>{{ appointment.age }}</td>
+              <td>{{ appointment.symptoms }}</td>
+              <td>{{ appointment.number }}</td>
+              <td>
+                  <button (click)="deleteAppointment(appointment.id)" class="btn btn-danger">Cancel Appointment</button>
+              </td>
+              
+          </tr>
+      </tbody>
+  </table>
+</div>

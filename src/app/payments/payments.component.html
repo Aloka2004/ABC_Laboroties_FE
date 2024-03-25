@@ -1,0 +1,59 @@
+<!-- payments.component.html -->
+<h4 class="text-3xl font-semibold">WELCOME TO ABC LABOROTIES</h4>
+<div class="container mx-auto p-4 payment-form">
+  <!-- Angular Logo -->
+  <div class="flex items-center justify-center mb-4">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"
+      alt="Angular Logo"
+      class="w-12 h-12 mr-2"
+    />
+    <h5 class="text-3xl font-semibold">Checkout</h5>
+  </div>
+
+  <!-- Payment Button -->
+  <div class="w-72 mx-auto">
+    <!-- Button for $1500 -->
+    <button
+      (click)="makePayment(1500)"
+      class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full mb-4"
+    >
+      Rs 1500
+    </button>
+
+    
+    <!-- Button for $2000 -->
+    <button
+      (click)="makePayment(2000)"
+      class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full mb-4"
+    >
+     Rs 2000
+    </button>
+    
+    <!-- Button for $2500 -->
+    <button
+      (click)="makePayment(2500)"
+      class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full mb-4"
+    >
+    Rs 2500
+    </button>
+    
+    <!-- Add more buttons as needed -->
+    <!-- Button for $3000 -->
+    <button
+      (click)="makePayment(3000)"
+      class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full mb-4"
+    >
+    Rs 3000
+    </button>
+    
+    <!-- Button for $4000 -->
+    <button
+      (click)="makePayment(4000)"
+      class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full mb-4"
+    >
+    Rs 4000
+    </button>
+    
+  </div>
+</div>
